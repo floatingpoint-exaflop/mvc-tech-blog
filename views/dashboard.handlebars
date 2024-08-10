@@ -1,0 +1,38 @@
+{{#if signedIn}}
+<section id= "myBlogPosts">
+    <h2 class="page-title">Your Blog Posts</h2>
+        {{#each data as |blogpost|}}
+        <article class="card card-rounded">
+            <h2 class="card card-rounded card-header">{{blogpost.dataValues.title}}</h2>
+            <hr>
+            <p class ="card card-body">{{blogpost.dataValues.text}}</p>
+            <h5 class="card card-body">Written by{{blogpost.dataValues.user.datavalues.username}} on {{(blogpost.dataValues.createdOn || blogpost.dataValues.updatedOn)}}</h5>
+            {{#each data as |comment|}}
+            <hr>
+            <p class ="card card-body">{{blogpost.dataValues.comment.datavalues.text}}</p>
+            <hr>
+            <h5 class="card card-rounded card-footer">Commented by{{blogpost.dataValues.comment.datavalues.user.datavalues.username}} on {{(blogpost.dataValues.comment.datavalues.createdOn || blogpost.dataValues.comment.datavalues.updatedOn)}}</h5>
+            {{/each}}
+        </article>
+        {{/each}}
+</section>
+
+<section id="blogForm">
+    <h2 class="page-title">What's on your mind?</h2>
+    <form class="form signup-form">
+      <div class="form-group">
+        <label for="newpost-title">Blog Post Title</label>
+        <input class="form-input" type="text" placeholder="What is your blog post called?" id="newpost-title" />
+      </div>
+      <div class="form-group">
+        <label for="newpost-text">Body Text</label>
+        <input class="form-input" type="password" placeholder="What do you want to tell us about?" id="newpost-text" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit" id="newpost-submit">Submit Post</button>
+      </div>
+    </form>
+</section>
+{{else}}
+<a href="/signin">You must sign in to your account before you can view this page.</a>
+{{/if}}

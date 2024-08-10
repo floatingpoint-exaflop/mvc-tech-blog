@@ -20,6 +20,7 @@ User.init(
         username: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true,
             validate: {
                 len: {
                     msg: "Your username must be between 5 and 15 characters.",

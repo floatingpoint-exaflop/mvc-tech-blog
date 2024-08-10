@@ -3,42 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tim's Tech Blog!</title>
+    <title>Tim"s Tech Blog!</title>
     <link rel="stylesheet" href="/css/reset.css" />
     <link rel="stylesheet" href="/css/jass.css" />
     <link rel="stylesheet" href="/css/style.css" />
-    <link rel="icon" href="/favicon/favicon.ico" type="“image" x-icon” />
-    <link rel="“shortcut" icon” href="“favicon.ico”" type="“image" x-icon” />
+    <link rel="icon" href="/favicon/favicon.ico" type="image" x-icon” />
+    <link rel="“shortcut" icon” href="“favicon.ico”" type="image" x-icon” />
   </head>
-  
-  <body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <span>The Tech Blog!</span>
-      </h1>
-      <nav>
-        <a href="/">Homepage</a>
-        {{#if signedIn}}
-        <a href="/dashboard">Dashboard</a> |
-        <button class="hidden-button" id="signout">Sign Out</button>
-        {{else}}
-        <a href="api/users/signin">Sign In</a>
-        {{/if}}
-      </nav>
-    </header>
-    <main class="container container-fluid mt-5">
-      {{{ body }}}
-    </main>
-    <footer>
-      
-    </footer>
-  </div>
 
-  <!-- Render script for logged in users only -->
-  {{#if signedIn}}
-  <script src="/js/signout.js"></script>
-  {{/if}}
-</body>
+  <body>
+    <div class="flex-column justify-space-around">
+      <header class="display-flex justify-space-between align-center p-2">
+        <h1>
+          <span>The Tech Blog!</span>
+        </h1>
+        <nav>
+          <a href="/">Homepage</a>
+          {{#if signedIn}}
+            <a href="/dashboard">Dashboard</a>
+            |
+            <button class="hidden-button" id="signout">Sign Out</button>
+          {{else}}
+            <a href="/signin">Sign in to your account, or if you're new here, create an account.</a>
+          {{/if}}
+        </nav>
+      </header>
+      <main class="container container-fluid mt-5">
+        {{{body}}}
+      </main>
+      <footer>
+        <h3 id="nameTag">Made with ❤️ by Tim Scallon</h3>
+        <div><a
+            href="https://floatingpoint-exaflop.github.io/coding-portfolio"
+            target="_blank"
+            id="portfolioLink"
+          ><h3>My Portfolio</h3></a></div>
+      </footer>
+    </div>
+
+    <!-- Render script for logged in users only -->
+    {{#if signedIn}}
+      <script src="/js/signout.js"></script>
+    {{/if}}
+  </body>
 
 </html>

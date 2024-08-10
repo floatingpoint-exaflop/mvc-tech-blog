@@ -1,3 +1,4 @@
+//this is just a file for testing with some dummy data, mostly to make sure the db is setup correctly.
 const sequelize = require('../config/connection');
 const { User, Blogpost, Comment } = require('../models');
 
