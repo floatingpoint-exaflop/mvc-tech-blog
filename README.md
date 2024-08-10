@@ -27,7 +27,8 @@
       1. To use this project, ensure you have [Postgres](https://www.postgresql.org/download/) and the node packages installed as specified in the Installation section above.
       2. Open a terminal on the db folder and run psql postgres.
       3. In Postgres, run \i schema.db to build the db.
-      4. Open a separate terminal on the project root, run nodemon server.js - the server will boot and the webpage can be viewed on localhost. Or if you like, the API routes can be hit via Postman or Insomnia, with some additional config in those tools (not provided here).
+      4. IF YOU NEED TEST DATA, Open a separate terminal on the project root and run node ./seeds/seedy.js to seed the db.
+      5. On that same new project root terminal, run nodemon server.js - the server will boot and the webpage can be viewed on localhost. Or if you like, the API routes can be hit via Postman or Insomnia, with some additional config in those tools (not provided here).
   
     ![Image](./deployed-screenshot.png)
 
