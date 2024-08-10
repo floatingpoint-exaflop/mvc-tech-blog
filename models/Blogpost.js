@@ -11,6 +11,16 @@ Blogpost.init(
             primaryKey: true,
             autoIncrement: true,
         },
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: {
+                    msg: "Your blog post's title must be between 5 and 20 characters.",
+                    args: [5, 20],
+                },
+            },
+        },
         text: {
             type: DataTypes.STRING,
             allowNull: false,
