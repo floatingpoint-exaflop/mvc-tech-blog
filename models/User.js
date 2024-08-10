@@ -42,11 +42,11 @@ User.init(
     //We are going to encrypt the password the user gives us via bcrypt hashing so it is secure and we don't just have a nonsecure table of passwords living in the db.
     {
         hooks: {
-            preRegistration: async (newUser) => {
+            beforeCreate: async (newUser) => {
                 newUser.password = await bcrypt.hash(newUser.password, 10);
                 return newUser;
             },
-            preUpdate: async (updatedUser) => {
+            beforeUpdate: async (updatedUser) => {
                 updatedUser.password = await bcrypt.hash(updatedUser.password, 10);
                 return updatedUser;
             },

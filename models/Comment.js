@@ -16,8 +16,8 @@ Comment.init(
             allowNull: false,
             validate: {
                 len: {
-                    msg: "Your comment must be between 5 and 100 characters.",
-                    args: [5, 100],
+                    msg: "Your comment must be between 5 and 200 characters.",
+                    args: [5, 200],
                 },
             },
         },
