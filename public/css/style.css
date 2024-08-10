@@ -1,0 +1,18 @@
+header, .project:not(:last-child) {
+  border-bottom: 1px solid #5b88cc;
+}
+
+.hidden-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #761bbc;
+  text-decoration: none;
+  font-size: 100%;
+}
+
+.hidden-button:hover {
+  color: #720683;
+  text-decoration: underline;
+}
