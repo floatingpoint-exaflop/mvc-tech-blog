@@ -33,5 +33,9 @@
     </form>
   </section>
 </div>
-
-<script type="text/javascript" src="./js/signin.js"></script>
+    {{#if signedIn}}
+      <script src="/js/signout.js"></script>
+    {{/if}}
+        {{#if !signedIn}}
+      <script src="/js/signin.js"></script>
+    {{/if}}

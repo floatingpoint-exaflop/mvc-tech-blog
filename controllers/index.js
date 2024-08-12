@@ -1,24 +1,11 @@
 const router = require('express').Router();
 const routes = require('./api');
-const { User, Blogpost, Comment } = require('../models');
 
+//requests to /api are forwarded to the index of routers in api folder, which handles other calls at the same level.
+router.get('/', async (req, res) => {
+    res.render('homepage')
+})
 router.use('/api', routes);
 
-router.get('/', async (req, res) => {
-    const allBlogPosts = await Blogpost.findAll({
-      include: [
-        { 
-          model: User,
-          attributes: ['username']
-        }, 
-        { 
-          model: Comment,
-          attributes: ['text', 'createdAt', 'updatedAt']
-        }
-      ],
-    })
-    console.log(allBlogPosts)
-    res.render('homepage', {data: allBlogPosts})
-  })
 
 module.exports = router;

@@ -1,0 +1,1 @@
+document.querySelector('signin-form').addEventListener('click', handleSignins);

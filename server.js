@@ -3,7 +3,13 @@ const session = require('express-session');
 const routes = require('./controllers');
 const exphbs = require('express-handlebars');
 const path = require('path');
-const hbs = exphbs.create({});
+const hbs = exphbs.create({
+  helpers: {
+    dateWorked: function (createdOn, updatedOn) {
+      return updatedOn || createdOn;
+    }
+  }
+});
 
 const app = express();
 const PORT = process.env.PORT || 3001;

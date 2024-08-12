@@ -1,5 +1,7 @@
-const handleNewPost = async (e) => {
+const makeNewPost = async (e) => {
     e.preventDefault();
-    const title = 
-    const text = 
+    const postTitle = document.querySelector('#blog-title').value.trim();
+    const postText = document.querySelector('#blog-text').value.trim();
+    const postAuthor = document.querySelector('#blog-author').value.trim()
 }
+
