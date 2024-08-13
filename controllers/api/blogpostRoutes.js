@@ -20,7 +20,7 @@ router.post('/', mustBeSignedIn, async (req, res) => {
 //used to delete an existing blog post
 router.delete('/:id', mustBeSignedIn, async (req, res) => {
   try {
-    const blogpostDeleted = await blogpostDeleted.destroy({
+    const blogpostDeleted = await Blogpost.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,

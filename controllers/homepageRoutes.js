@@ -31,7 +31,7 @@ router.get('/', async (req, res) => {
 });
 
 //Show a specific blog post; this should be called when user clicks on on the list of all blog posts.
-router.get('/blogpost/:id'),
+router.get('/blogpost/:id',
   async (req, res) => {
     try {
       const oneBlogpost = await Blogpost.findByPk(req.params.id, {
@@ -57,7 +57,7 @@ router.get('/blogpost/:id'),
         .json({ message: 'Error: Blogposts could not be retrieved.' });
       return;
     }
-  };
+  });
 
 //login check
 router.get('/dashboard', mustBeSignedIn, async (req,res) => {
@@ -73,6 +73,7 @@ router.get('/dashboard', mustBeSignedIn, async (req,res) => {
       .json({ message: 'Error: cannot sign in.' });
     return;
   }
+  res.render('login');
 })
 
 //login redirect
