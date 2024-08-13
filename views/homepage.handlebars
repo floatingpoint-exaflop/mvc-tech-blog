@@ -1,20 +1,19 @@
-<div class="row align-center mb-5">
-    <section class="col-md-6">
-            {{#each blogpost as |blogpost|}}
-            <article class="card card-rounded">
-                <h2 class="card card-rounded card-header">{{blogpost.dataValues.title}}</h2>
-                <hr>
-                <p class ="card card-body">{{blogpost.dataValues.text}}</p>
-                <h5 class="card card-body">Written by{{blogpost.dataValues.user.dataValues.username}} on {{dateWorked blogpost.createdOn blogpost.updatedOn}}</h5>
-                {{#if blogpost.dataValues.comment}}
-                {{#each blogpost.dataValues.comment as |comment|}}
-                <hr>
-                <p class ="card card-body">{{comment.dataValues.text}}</p>
-                <hr>
-                <h5 class="card card-rounded card-footer">Commented by{{comment.dataValues.user.dataValues.username}} on {{dateWorked comment.createdOn comment.updatedOn}}</h5>
-                {{/each}}
-                {{/if}}
-            </article>
+{{#each blogpost as |blogpost| }}
+<div class="row mb-4 blogpost">
+  <div class="col-md-5">
+    <h2>
+      <a href="/blogpost/{{blogpost.id}}">{{blogpost.title}}</a>
+    </h2>
+    <p class ="card card-body" id="blog-text">{{blogpost.text}}</p>
+    <h5 class="card card-body" id="blog-author">Written by{{blogpost.user.username}} on {{format_date blogpost.date_created}}</h5>
+  </div>
+      <div>
+            {{#each data as |comment|}}
+            <hr>
+            <p class ="card card-body" id="comment-text">{{blogpost.comment.text}}</p>
+            <hr>
+            <h5 class="card card-rounded card-footer" id="comment-author">Commented by{{blogpost.comment.user.username}} on {{format_date comment.date_created}}</h5>
             {{/each}}
-    </section>
-</div>
+      </div>
+  </div>
+{{/each}}

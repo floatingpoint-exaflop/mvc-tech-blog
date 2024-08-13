@@ -19,9 +19,8 @@
         </h1>
         <nav>
           <a href="/">Homepage</a>
-          {{#if signedIn}}
-            <a href="/dashboard">Dashboard</a>
-            |
+          {{#if logged_in}}
+            <a href="/dashboard">Dashboard</a><span> | </span>
             <button class="hidden-button" id="signout">Sign Out</button>
           {{else}}
             <a href="/signin">Sign In/Create Account</a>
@@ -41,8 +40,7 @@
       </footer>
     </div>
 
-    <!-- Render script for logged in users only -->
-    {{#if signedIn}}
+    {{#if logged_in}}
       <script src="/js/signout.js"></script>
     {{/if}}
   </body>

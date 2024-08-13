@@ -1,13 +1,13 @@
 const router = require('express').Router();
 const accountRoutes = require('./accountRoutes');
-const homeRoutes = require('./homeRoutes');
-const dashboardRoutes = require('./dashboardRoutes');
+const blogpostRoutes = require('./blogpostRoutes');
+const commentRoutes = require('./commentRoutes');
 
 //calls made to /api/accounts are in the accountRoutes file.
 router.use('/accounts', accountRoutes);
-//calls made to /api/homepage are in the homeRoutes file.
-router.use('/homepage', homeRoutes);
-//calls made to /api/dashboard are in the dashboardRoutes file.
-router.use('/dashboard', dashboardRoutes);
+//calls made to /api/blogposts are in the homeRoutes file.
+router.use('/blogposts', blogpostRoutes);
+//calls made to /api/comments are in the dashboardRoutes file.
+router.use('/comments', commentRoutes);
 
 module.exports = router;

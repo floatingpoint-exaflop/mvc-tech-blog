@@ -1,18 +1,12 @@
-{{#if signedIn}}
+{{#if logged_in}}
 <section id= "myBlogPosts">
     <h2 class="page-title">Your Blog Posts</h2>
         {{#each data as |blogpost|}}
         <article class="card card-rounded">
-            <h2 class="card card-rounded card-header" id="blog-title">{{blogpost.dataValues.title}}</h2>
+            <h2 class="card card-rounded card-header" id="blog-title">{{blogpost.title}}</h2>
             <hr>
-            <p class ="card card-body" id="blog-text">{{blogpost.dataValues.text}}</p>
-            <h5 class="card card-body" id="blog-author">Written by{{blogpost.dataValues.user.datavalues.username}} on {{(blogpost.dataValues.createdOn || blogpost.dataValues.updatedOn)}}</h5>
-            {{#each data as |comment|}}
-            <hr>
-            <p class ="card card-body" id="comment-text">{{blogpost.dataValues.comment.datavalues.text}}</p>
-            <hr>
-            <h5 class="card card-rounded card-footer" id="comment-author">Commented by{{blogpost.dataValues.comment.datavalues.user.datavalues.username}} on {{(blogpost.dataValues.comment.datavalues.createdOn || blogpost.dataValues.comment.datavalues.updatedOn)}}</h5>
-            {{/each}}
+            <p class ="card card-body" id="blog-text">{{blogpost.text}}</p>
+            <h5 class="card card-body" id="blog-author">Written by{{blogpost.user.username}} on {{(format_date blogpost.date_created)}}</h5>
         </article>
         {{/each}}
 </section>
