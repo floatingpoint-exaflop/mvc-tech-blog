@@ -1,10 +1,8 @@
-//this is just a file for testing with some dummy data, mostly to make sure the db is setup correctly.
 const sequelize = require('../config/connection');
-const { User, Blogpost, Comment } = require('../models');
+const { User, Blog } = require('../models');
 
 const userData = require('./userData.json');
 const blogData = require('./blogData.json');
-const commentData = require('./commentData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -14,20 +12,11 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  for (const blogpost of blogData) { 
-    const createdBlogpost = await Blogpost.create({
-      ...blogpost,
+  for (const blog of blogData) {
+    await Blog.create({
+      ...blog,
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
-
-    
-    for (const comment of commentData) { 
-      await Comment.create({
-        ...comment,
-        user_id: users[Math.floor(Math.random() * users.length)].id,
-        blogpost_id: createdBlogpost.id,
-      });
-    }
   }
 
   process.exit(0);

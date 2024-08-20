@@ -1,55 +1,24 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #5b88cc;
+header, .blog:not(:last-child) {
+  border-bottom: 1px solid #ccc;
 }
 
-.hidden-button {
+.no-button {
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
-  color: #761bbc;
+  color: #1b89bc;
   text-decoration: none;
   font-size: 100%;
 }
 
-.hidden-button:hover {
-  color: #720683;
+.no-button:hover {
+  color: #065b83;
   text-decoration: underline;
 }
 
-.blog-post-tile {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  border: 1px solid;
-  border-radius: 5px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-left: 10px;
-}
-
-.blog-post-tile h4 {
-  margin-top: 5px;
-  margin-bottom: 2px;
+.dollar-amount {
+  color: #056605;
   font-weight: bold;
-}
-
-.blog-post-tile hr {
-  border: 1px solid;
-  margin: 1px;
-  margin-right: 10px;
-}
-
-.blog-post-tile p {
-  margin-top: 3px;
-  margin-bottom: 2px;
-  margin-left: 15px;
-  font-style: italic;
-}
-
-.blog-post-tile h5 {
-  margin-top: 2px;
-  margin-bottom: 3px;
-  font-size: 15px;
+  margin-left: -5px;
 }

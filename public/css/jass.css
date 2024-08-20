@@ -1108,10 +1108,6 @@ a:hover {
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
 }
 
-.card.card-rounded .card-footer {
-  border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
-}
-
 form {
   width: 100%;
 }

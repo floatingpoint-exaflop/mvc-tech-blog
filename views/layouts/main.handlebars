@@ -1,48 +1,44 @@
+<!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tim's Tech Blog!</title>
-    <link rel="stylesheet" href="/css/reset.css" />
-    <link rel="stylesheet" href="/css/jass.css" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="icon" href="/favicon/favicon.ico" type="image" x-icon” />
-    <link rel="“shortcut" icon” href="“favicon.ico”" type="image" x-icon” />
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Blog Time!</title>
+  <link rel="stylesheet" href="/css/jass.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
 
-  <body>
-    <div class="flex-column justify-space-around">
-      <header class="display-flex justify-space-between align-center p-2">
-        <h1>
-          <span>The Tech Blog!</span>
-        </h1>
-        <nav>
-          <a href="/">Homepage</a>
-          {{#if logged_in}}
-            <a href="/dashboard">Dashboard</a><span> | </span>
-            <button class="hidden-button" id="signout">Sign Out</button>
-          {{else}}
-            <a href="/signin">Sign In/Create Account</a>
-          {{/if}}
-        </nav>
-      </header>
-      <main class="container container-fluid mt-5">
-        {{{body}}}
-      </main>
-      <footer>
-        <h3 id="nameTag">Made with ❤️ by Tim Scallon</h3>
-        <div><a
-            href="https://floatingpoint-exaflop.github.io/coding-portfolio"
-            target="_blank"
-            id="portfolioLink"
-          ><h3>My Portfolio</h3></a></div>
-      </footer>
-    </div>
+<body>
+  <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2">
+      <h1>
+        <span role="img">🖥️</span>
+        <a href="/">Welcome to the Tech Blog!</a>
+      </h1>
+      <nav>
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="/profile">profile</a> |
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+      </nav>
+    </header>
+    <main class="container container-fluid mt-5">
+      <!-- Render the sub layout -->
+      {{{ body }}}
+    </main>
+    <footer>
+      
+    </footer>
+  </div>
 
-    {{#if logged_in}}
-      <script src="/js/signout.js"></script>
-    {{/if}}
-  </body>
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
 
 </html>
