@@ -10,16 +10,16 @@
 
     <form class="form new-blog-form">
       <div class="form-group">
-        <label for="blog-name">blog name:</label>
-        <input class="form-input" type="text" id="blog-name" name="blog-name" />
+        <label for="blog-title">Post Title:</label>
+        <input class="form-input" type="text" id="blog-title" name="blog-title" />
       </div>
       <div class="form-group">
         <label for="blog-funding">needed funding ($):</label>
         <input class="form-input" type="number" id="blog-funding" name="blog-funding" />
       </div>
       <div class="form-group">
-        <label for="blog-desc">description:</label>
-        <textarea class="form-input" id="blog-desc" name="blog-desc"></textarea>
+        <label for="blog-text">Post Content:</label>
+        <textarea class="form-input" id="blog-text" name="blog-text"></textarea>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
@@ -34,7 +34,7 @@
     {{#each blogs as |blog|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/blog/{{blog.id}}">{{blog.name}}</a></h4>
+        <h4><a href="/blog/{{blog.id}}">{{blog.title}}</a></h4>
       </div>
       <div class="col-md-4">
         <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
