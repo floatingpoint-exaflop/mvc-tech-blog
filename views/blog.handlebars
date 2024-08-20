@@ -2,7 +2,13 @@
   <h2>{{title}}</h2>
   <p>{{blog_text}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
+  {{#if logged_in}}
   <p>
-    <button class="btn btn-primary">Leave a Comment!</button>
+    <button class="btn btn-primary" onclick="window.location.href='/comment';">Leave a Comment!</button>
   </p>
+  {{else}}
+   <p>
+    <button class="btn btn-primary" onclick="window.location.href='/login';">Login to Leave a Comment!</button>
+  </p>
+  {{/if}}
 </div>
