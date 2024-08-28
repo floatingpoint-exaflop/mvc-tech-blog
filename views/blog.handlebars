@@ -6,7 +6,7 @@
 <h3>Comments:</h3>
 {{#each comments}}
   <div class="comment">
-    <p>{{this.comment.comment_text}}</p>
+    <p>{{this.comment_text}}</p>
     <p>Commented by {{this.user.name}} on {{format_date this.date_created}}</p>
   </div>
 {{else}}
@@ -15,7 +15,7 @@
 
   {{#if logged_in}}
   <p>
-    <button class="btn btn-primary" onclick="window.location.href='/comment';">Leave a Comment!</button>
+    <button class="btn btn-primary" onclick="window.location.href='/comment/{{id}}';">Leave a Comment!</button>
   </p>
   {{else}}
    <p>

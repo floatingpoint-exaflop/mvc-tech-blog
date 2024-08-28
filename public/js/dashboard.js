@@ -86,6 +86,10 @@ document
   .addEventListener('submit', newFormHandler);
 
 document
+.querySelector('.new-comment-form')
+.addEventListener('submit', newCommentHandler);
+
+document
   .querySelector('.blog-list')
   .addEventListener('click', (event) => {
     if (event.target.classList.contains('btn-primary')) {
