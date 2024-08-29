@@ -1,25 +1,35 @@
-<div class="text-center">
-  <h2>{{title}}</h2>
-  <p>{{blog_text}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+<div class='text-left blog-post'>
+  <h2 class='blog-title'>{{title}}</h2>
+  <p class='blog-content'>{{blog_text}}</p>
+  <p class="blog-author">Created by {{user.name}} on {{format_date date_created}}</p>
+  <div class='comments-section'>
+    <h3>Comments:</h3>
+    {{#each comments}}
+      <div class='comments-section'>
+        <p class="comment-text">{{this.comment_text}}</p>
+        <p class="comment-author">Commented by
+          {{this.user.name}}
+          on
+          {{format_date this.date_created}}</p>
+      </div>
+    {{else}}
+      <p>No comments yet on this post - yours could be the first!</p>
+    {{/each}}
 
-<h3>Comments:</h3>
-{{#each comments}}
-  <div class="comment">
-    <p>{{this.comment_text}}</p>
-    <p>Commented by {{this.user.name}} on {{format_date this.date_created}}</p>
+    {{#if logged_in}}
+      <p>
+        <button
+          class='btn btn-primary'
+          onclick="window.location.href='/comment/{{id}}';"
+        >Leave a Comment!</button>
+      </p>
+    {{else}}
+      <p>
+        <button
+          class='btn btn-primary'
+          onclick="window.location.href='/login';"
+        >Login to Leave a Comment!</button>
+      </p>
+    {{/if}}
   </div>
-{{else}}
-  <p>No comments yet on this post - yours could be the first!</p>
-{{/each}}
-
-  {{#if logged_in}}
-  <p>
-    <button class="btn btn-primary" onclick="window.location.href='/comment/{{id}}';">Leave a Comment!</button>
-  </p>
-  {{else}}
-   <p>
-    <button class="btn btn-primary" onclick="window.location.href='/login';">Login to Leave a Comment!</button>
-  </p>
-  {{/if}}
 </div>
