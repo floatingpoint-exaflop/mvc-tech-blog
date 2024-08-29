@@ -88,4 +88,27 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+
+
+router.get('/comment/:id', withAuth, async (req, res) => {
+  try {
+    const blogData = await Blog.findByPk(req.params.id, {
+      attributes: ['title'],
+    });
+
+    if (!blogData) {
+      res.status(404).json({ message: 'No blog found with that ID!' });
+      return;
+    }
+
+    res.render('comment', {
+      title: blogData.title,
+      logged_in: req.session.logged_in,
+      blog_id: req.params.id
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

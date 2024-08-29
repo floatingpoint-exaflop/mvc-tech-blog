@@ -66,7 +66,7 @@ const editButtonHandler = async (event) => {
 const newCommentHandler = async (event) => {
   event.preventDefault()
   const comment_text = document.querySelector('#comment-text').value.trim()
-  const blog_id = document.querySelector('#comment-text').value.trim() = document.querySelector('#blog_id').value
+  const blog_id = document.querySelector('#blog_id').value
 
   if (comment_text) {
     const response = await fetch('/api/comment/', {
